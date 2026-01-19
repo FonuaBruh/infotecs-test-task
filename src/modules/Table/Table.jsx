@@ -60,7 +60,7 @@ export const Table = () => {
         )}
 
         {!loading && users.length === 0 && !error && (
-          <div className="no-data">Нет данных для отображения</div>
+          <div className="no-data">Нет данных</div>
         )}
       </LoadingError>
     </div>
