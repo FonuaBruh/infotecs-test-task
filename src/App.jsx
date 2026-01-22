@@ -1,10 +1,10 @@
-import { useUsersViewModel } from './viewmodel/useUsers';
+import { useUsers } from './viewmodel/useUsers';
 import { UsersTable } from './components/UsersTable';
 import { Pagination } from './components/Pagination';
 import './App.css';
 
 export default function App() {
-  const vm = useUsersViewModel();
+  const vm = useUsers();
 
   return (
     <div className="container">

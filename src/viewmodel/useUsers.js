@@ -3,7 +3,7 @@ import { fetchUsers } from '../api/userApi';
 
 const SORT_STATES = [null, 'asc', 'desc'];
 
-export function useUsersViewModel() {
+export function useUsers() {
   const [users, setUsers] = useState([]);
   const [page, setPage] = useState(1);
   const [limit] = useState(10);
