@@ -4,26 +4,44 @@ export function UsersTable({
   sortField,
   sortOrder
 }) {
+  const COLUMN_TITLE = {
+    lastName: 'Фамилия',
+    firstName: 'Имя',
+    surname: 'Отчество',
+    age: 'Возраст',
+    gender: 'Пол',
+    phone: 'Телефон',
+    email: 'Email',
+    country: 'Страна',
+    city: 'Город'
+  }
+
+  const FILTER_BUTTONS = {
+    static: ' -',
+    asc: ' ▲',
+    desc: ' ▼',
+  }
+  
   const getArrow = (field) => {
-    if (sortField !== field) return ' -';
-    if (sortOrder === 'asc') return ' ▲';
-    if (sortOrder === 'desc') return ' ▼';
-    return '';
+    if (sortField !== field) return FILTER_BUTTONS.static;
+    if (sortOrder === 'asc') return FILTER_BUTTONS.asc;
+    if (sortOrder === 'desc') return FILTER_BUTTONS.desc;
+    return FILTER_BUTTONS.static;
   };
 
   return (
     <table>
       <thead>
         <tr>
-          <th onClick={() => onSort('lastName')}>Фамилия{getArrow('lastName')}</th>
-          <th onClick={() => onSort('firstName')}>Имя{getArrow('firstName')}</th>
-          <th onClick={() => onSort('surname')}>Отчество{getArrow('surname')}</th>
-          <th onClick={() => onSort('age')}>Возраст{getArrow('age')}</th>
-          <th onClick={() => onSort('gender')}>Пол{getArrow('gender')}</th>
-          <th onClick={() => onSort('phone')}>Телефон{getArrow('phone')}</th>
-          <th>Email</th>
-          <th>Страна</th>
-          <th>Город</th>
+          <th onClick={() => onSort('lastName')}>{COLUMN_TITLE.lastName}{getArrow('lastName')}</th>
+          <th onClick={() => onSort('firstName')}>{COLUMN_TITLE.firstName}{getArrow('firstName')}</th>
+          <th onClick={() => onSort('surname')}>{COLUMN_TITLE.surname}{getArrow('surname')}</th>
+          <th onClick={() => onSort('age')}>{COLUMN_TITLE.age}{getArrow('age')}</th>
+          <th onClick={() => onSort('gender')}>{COLUMN_TITLE.gender}{getArrow('gender')}</th>
+          <th onClick={() => onSort('phone')}>{COLUMN_TITLE.phone}{getArrow('phone')}</th>
+          <th>{COLUMN_TITLE.email}</th>
+          <th>{COLUMN_TITLE.country}</th>
+          <th>{COLUMN_TITLE.city}</th>
         </tr>
       </thead>
       <tbody>
