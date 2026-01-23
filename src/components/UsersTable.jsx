@@ -2,7 +2,8 @@ export function UsersTable({
   users,
   onSort,
   sortField,
-  sortOrder
+  sortOrder,
+  onRowClick
 }) {
   const COLUMN_TITLE = {
     lastName: 'Фамилия',
@@ -46,7 +47,11 @@ export function UsersTable({
       </thead>
       <tbody>
         {users.map((u) => (
-          <tr key={u.id}>
+          <tr
+            key={u.id}
+            onClick={() => onRowClick(u)}
+            style={{ cursor: 'pointer' }}
+          >
             <td>{u.lastName}</td>
             <td>{u.firstName}</td>
             <td>{u.maidenName}</td>

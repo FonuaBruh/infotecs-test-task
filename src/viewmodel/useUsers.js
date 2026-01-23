@@ -15,6 +15,9 @@ export function useUsers() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
+  const [selectedUser, setSelectedUser] = useState(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   const sortOrder = SORT_STATES[sortOrderIndex];
 
   useEffect(() => {
@@ -52,6 +55,16 @@ export function useUsers() {
     setPage(1);
   }
 
+  function openUser(user) {
+    setSelectedUser(user);
+    setIsModalOpen(true);
+  }
+
+  function closeUser() {
+    setSelectedUser(null);
+    setIsModalOpen(false);
+  }
+
   return {
     users,
     page,
@@ -62,6 +75,10 @@ export function useUsers() {
     setPage,
     toggleSort,
     sortField,
-    sortOrder
+    sortOrder,
+    selectedUser,
+    isModalOpen,
+    openUser,
+    closeUser
   };
 }

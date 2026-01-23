@@ -1,6 +1,7 @@
 import { useUsers } from './viewmodel/useUsers';
 import { UsersTable } from './components/UsersTable';
 import { Pagination } from './components/Pagination';
+import { UserModal } from './components/UserModal';
 import './App.css';
 
 export default function App() {
@@ -18,6 +19,7 @@ export default function App() {
             onSort={vm.toggleSort}
             sortField={vm.sortField}
             sortOrder={vm.sortOrder}
+            onRowClick={vm.openUser}
           />
 
           <Pagination
@@ -26,6 +28,13 @@ export default function App() {
             limit={vm.limit}
             onChange={vm.setPage}
           />
+          
+          {vm.isModalOpen && (
+            <UserModal
+              user={vm.selectedUser}
+              onClose={vm.closeUser}
+            />
+          )}     
         </>
       )}
     </div>

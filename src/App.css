@@ -7,6 +7,7 @@
   --text-color: #9E3B3B;
   --primary-color: #f39d9d;
   --secondary-color: #f3caca;
+  --bg-color: #FFEAD3;
 }
 
 html {
@@ -15,7 +16,7 @@ html {
 }
 
 body {
-  background-color: #FFEAD3;
+  background-color: var(--bg-color);
 }
 
 .container {
@@ -55,6 +56,7 @@ button {
   color: var(--text-color);
   background-color: var(--primary-color);
   border-color: var(--text-color);
+  padding: 5px 10px;
 }
 
 .error {
